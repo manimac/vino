@@ -1,3 +1,8 @@
+<style>
+  .active{
+    color: aqua;
+  }
+</style>
 <div>{{username}}</div>
 <div [innerHtml]="username"></div>
 
@@ -19,3 +24,42 @@
     </tr>
   </tbody>
 </table>
+
+<div *ngIf="showDivision">
+  If condition Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui assumenda nulla esse velit mollitia eum voluptatibus maxime consequuntur totam, et consequatur voluptatem, culpa dolorum tempora possimus harum, suscipit dolore non.
+</div>
+
+
+<div [hidden]="showDivision">
+  Hidden condition Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui assumenda nulla esse velit mollitia eum voluptatibus maxime consequuntur totam, et consequatur voluptatem, culpa dolorum tempora possimus harum, suscipit dolore non.
+</div>
+
+<button (click)="showDiv()">Show division</button>
+
+
+<div [ngClass]="{'active':showClass}">
+  class Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit labore quasi officia dolorum dolore eius dolor explicabo quod tempore rerum, illum perferendis perspiciatis nobis eaque ab. Ducimus libero voluptates id.
+</div>
+
+<input type="text" #username>
+<button (click)="saveText(username.value)">Save</button>
+
+
+<input type="text" [(ngModel)]="stuName">
+<button (click)="saveText2(username.value)">Save</button>
+
+
+<form #form = "ngForm">
+  <input type="text" name="name" ngModel>
+  <input type="text" name="email" ngModel>
+  <input type="text" name="mobile" ngModel>
+  <button (click)="saveText3(form.value)">Save text using template driven</button>
+</form>
+
+
+<form [formGroup]="studentsForm">
+  <input type="text" formControlName="name">
+  <input type="text" formControlName="email">
+  <input type="text" formControlName="mobile">
+  <button (click)="saveText4()">Save text using reactive </button>
+</form>

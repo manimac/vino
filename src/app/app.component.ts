@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FormGroup, FormControl, Validators} from '@angular/forms';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent {
 
-  
+  stuName = 'jbfdhb';
   private a: any = 5;
   private b: any = 10;
   username = '<b>Dinesh kumar</b>';
@@ -16,6 +16,17 @@ export class AppComponent {
     age:20,
     mobile: 984589569
   }
+
+  showDivision = true;
+  showClass = false;
+
+
+  newObj = {
+    name: 'Vignesh',
+    mobile: 58997695709
+  }
+
+  studentsForm: FormGroup;
 
   students = [
     {
@@ -38,6 +49,15 @@ export class AppComponent {
   ngOnInit(){
    this.save(10); 
    this.arrayFunctions();
+
+
+   this.studentsForm = new FormGroup({
+     name: new FormControl('', Validators.compose([Validators.required, Validators.minLength(5)])),
+     email: new FormControl(''),
+     mobile: new FormControl(''),
+   })
+
+   this.studentsForm.patchValue(this.newObj);
   }
   save(val=2){
     this.a = val;
@@ -81,4 +101,29 @@ export class AppComponent {
     // this.students.splice(1,1);
     console.log(this.students)
   }
+
+  showDiv(){
+    this.showDivision = !this.showDivision;
+  }
+
+  saveText(val){
+    alert(val);
+  }
+
+  saveText2(){
+    alert(this.stuName);
+  }
+
+  saveText3(val){
+    console.log(val)
+  }
+
+  saveText4(){
+    console.log(this.studentsForm.valid);
+    console.log(this.studentsForm.value)
+    if(!this.studentsForm.value.name){
+      console.log("Name is not filled");
+    }
+  }
 }
+
