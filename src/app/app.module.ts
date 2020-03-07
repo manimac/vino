@@ -3,15 +3,40 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { Routes, RouterModule} from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './header/header.component';
+import { AboutComponent } from './about/about.component';
+import { ConvertToDollarPipe, UpperCasePipe } from './convert-to-dollar.pipe';
+import { ConvertToUpperPipe } from './convert-to-upper.pipe';
+import { SearchFilterPipe } from './search-filter.pipe';
 
+import { HttpClientModule } from '@angular/common/http';
+
+const route: Routes = [
+  {
+    path:'home', component: HomeComponent
+  },{
+    path:'about', component: AboutComponent
+  }
+]
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    HeaderComponent,
+    AboutComponent,
+    ConvertToDollarPipe,
+    ConvertToUpperPipe,
+    UpperCasePipe,
+    SearchFilterPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot(route),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

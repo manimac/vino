@@ -1,0 +1,38 @@
+<style>
+
+    .active{
+        color: red;
+    }
+</style>
+{{serviceText}}
+<app-header [student]="studentName" [employee]="'Rajeev'"></app-header>
+<div>{{userName}}</div>
+<div [innerHtml]="userName"></div>
+
+<div *ngIf="showDiv">Ng if condition</div>
+<button (click)="changeDiv()">Change Div</button>
+<div [ngClass]="{'active':showDiv}">kdnfjkngjk</div>
+
+
+<input type="text" #test>
+<button (click)="getvalue1(test.value)">Get value using one way binging</button>
+
+<input type="text" [(ngModel)]="studentName">
+<button (click)="getvalue2()">Get value using two way binging</button>
+
+<h3>Template driven apprach</h3>
+<form #loginform="ngForm">
+    <input type="text" name="name" ngModel>
+    <input type="text" name="email" ngModel>
+    <input type="text" name="mobile" ngModel>
+    <button (click)="login(loginform.value)">Login</button>
+</form>
+
+
+<h3>Reactive form apprach</h3>
+<form [formGroup]="studentsForm">
+    <input type="text" formControlName="name">
+    <input type="text" formControlName="email">
+    <input type="text" formControlName="mobile">
+    <button (click)="reactive()">Reactive form</button>
+</form>

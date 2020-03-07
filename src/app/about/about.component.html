@@ -1,0 +1,37 @@
+<p>about works!</p>
+<div>{{price1|convertToDollar}}</div>
+<div>{{price2|convertToDollar}}</div>
+<div>{{price3|convertToDollar}}</div>
+<div>{{studentName|upper}}</div>
+
+<input type="text" [(ngModel)]="search">
+<table>
+    <thead>
+        <th>Name</th>
+        <th>Age</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let stu of students|searchFilter:search">
+            <td>{{stu.name}}</td>
+            <td>{{stu.age}}</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<table>
+    <thead>
+        <th>User id</th>
+        <th>id</th>
+        <th>Title</th>
+        <th>body</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let post of posts">
+            <td>{{post.userId}}</td>
+            <td>{{post.id}}</td>
+            <td>{{post.title}}</td>
+            <td>{{post.body}}</td>
+        </tr>
+    </tbody>
+</table>
