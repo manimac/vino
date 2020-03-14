@@ -12,6 +12,7 @@ import { ConvertToUpperPipe } from './convert-to-upper.pipe';
 import { SearchFilterPipe } from './search-filter.pipe';
 
 import { HttpClientModule } from '@angular/common/http';
+import { TestDirectiveDirective } from './test-directive.directive';
 
 const route: Routes = [
   {
@@ -29,7 +30,8 @@ const route: Routes = [
     ConvertToDollarPipe,
     ConvertToUpperPipe,
     UpperCasePipe,
-    SearchFilterPipe
+    SearchFilterPipe,
+    TestDirectiveDirective
   ],
   imports: [
     BrowserModule,

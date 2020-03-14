@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-about',
@@ -8,10 +8,11 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
-
+  search;
   posts;
-  constructor(private http:HttpClient) { 
-    this.http.get("https://jsonplaceholder.typicode.com/postsfbjfjkhf").subscribe(
+  // url = 'assets/1.jpg';
+  constructor(private http:HttpClient, private router: Router) { 
+    this.http.get("https://jsonplaceholder.typicode.com/posts").subscribe(
       (response)=>{
         this.posts = response;
       },
@@ -19,6 +20,7 @@ export class AboutComponent implements OnInit {
         console.log(error)
       }
     )
+    console.log(this.router.url)
   }
 
   ngOnInit() {
